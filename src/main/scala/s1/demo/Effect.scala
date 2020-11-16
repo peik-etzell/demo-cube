@@ -1,5 +1,5 @@
 package s1.demo
-import java.awt.image.BufferedImage
+//import java.awt.image.BufferedImage
 import o1.gui.Pic
 
 /**

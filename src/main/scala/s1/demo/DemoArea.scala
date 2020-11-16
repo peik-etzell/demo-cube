@@ -16,12 +16,12 @@ import o1._
 object Effects {
   val effects = Vector[Effect](Snakes)
   
-  var done = false;
+  var done = false
   var currentEffect = effects.head
   var nextEffects   = effects.tail
   
   def tick() = {
-    currentEffect.changeThings();
+    currentEffect.changeThings()
     
     if (currentEffect.next) {
       if (nextEffects.isEmpty) {
@@ -33,7 +33,7 @@ object Effects {
     }
   }
   
-  def makePic   = currentEffect.makePic
+  def makePic   = currentEffect.makePic()
   
   def mouseAt(x: Int, y: Int) = currentEffect.mouseAt(x, y)
   
