@@ -38,12 +38,14 @@ object Demo extends App {
         camera.move(camera.vectors(2).scaled(-0.0001))
       } else if (key == Key.D) {
         camera.move(camera.vectors(0).scaled(0.0001))
+      } else if (key == Key.R) {
+        cube.reset()
       }
     }
 
     override def onTick(): Unit = {
-      camera.addLines(cube.lines)
-      camera.addLines(container.lines)
+      val linesToDraw = cube.lines ++ container.lines
+      camera.updateLines(linesToDraw)
       cube.tick()
     }
   }
