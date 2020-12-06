@@ -77,3 +77,18 @@ class Vec(var i: Double, var j: Double, var k: Double) {
 
   override def toString: String = s"Length: $length (${i}i, ${j}j, ${k}k)"
 }
+
+object Vec {
+  import scala.util.Random._
+
+
+
+  def random(size: Int) = {
+    def randomNumber(range: Int) = {
+      val number = nextInt(range)
+      if (nextBoolean()) number else -number
+    }
+    new Vec(randomNumber(size), randomNumber(size), randomNumber(size))
+
+  }
+}
