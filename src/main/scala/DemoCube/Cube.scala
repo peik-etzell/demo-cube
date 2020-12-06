@@ -11,8 +11,8 @@ class Cube(val sideLength: Double) {
   val zAxis = new Vec(0, 0, 1)
 
   //Vectors
-  var spin = new Vec(0, 10, 10)
-  var velocity = new Vec(-3, 100, 0)
+  var spin = Vec.random(5)
+  var velocity = Vec.random(10)
   val gravity = new Vec(0, -Gravity/TickRate, 0)
 
   //Corner objects (Vecs)
@@ -51,6 +51,13 @@ class Cube(val sideLength: Double) {
       //this.velocity.lineFrom(center),
       //this.a.velocity.lineFrom(a.point)
     )
+  }
+
+  //Reset
+  def reset() = {
+    this.spin = Vec.random(5)
+    this.velocity = Vec.random(10)
+    this.center = new Point(0, 0, 0)
   }
 
   //Calculates the collision semi-realistically
