@@ -67,11 +67,14 @@ class Cube(val sideLength: Double) {
     this.spin = inverseVel.cross(corner)
     this.spin.scale(Damping)
     axis match {
-      case 'x' => this.velocity.i *= -0.7
-      case 'y' => this.velocity.j *= -0.7
-      case 'z' => this.velocity.k *= -0.7
+      // case 'x' => this.velocity.i *= -0.7
+      // case 'y' => this.velocity.j *= -0.7
+      // case 'z' => this.velocity.k *= -0.7
+      case 'x' => this.velocity.i *= -1
+      case 'y' => this.velocity.j *= -1
+      case 'z' => this.velocity.k *= -1
     }
-    this.velocity add inverseVel.scaled(0.3)
+    // this.velocity add inverseVel.scaled(0.3)
     this.velocity.scale(Damping)
   }
 
@@ -100,8 +103,8 @@ class Cube(val sideLength: Double) {
 
   //Gets called every tick
   def tick() {
-    this.move()
-    //this.fall()
+    // this.move()
+    // this.fall()
     corners.foreach(_.rotate('x', spin.i))
     corners.foreach(_.rotate('y', spin.j))
     corners.foreach(_.rotate('z', spin.k))
@@ -124,5 +127,8 @@ class Cube(val sideLength: Double) {
     } else if (boundsZ._2.point.z > WorldSize && boundsZ._2.velocity.dot(zAxis) > 0) {
       impact(boundsZ._2, 'z')
     }
+    // this.fall()
+    this.move()
+    this.fall()
   }
 }
