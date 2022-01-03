@@ -23,3 +23,4 @@ src
 Movement is very janky: use WASD to move around, while Q and E turn the camera left and right. 
 
 ![Gif](https://github.com/peik-etzell/demo-cube/blob/master/pictures/demo.gif)
+_GIF (note: slow to load)_
